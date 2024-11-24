@@ -1,4 +1,7 @@
-**File Path:** /opt/aws/amazon-cloudwatch-agent/bin/mon.sh
+**File Path:** 
+```
+/opt/aws/amazon-cloudwatch-agent/bin/mon.sh
+```
 
 **Purpose**
 
