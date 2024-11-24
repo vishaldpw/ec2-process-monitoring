@@ -13,13 +13,10 @@ and integrates with AWS CloudWatch alarms for notifications.
     The PATH variable is extended to include common directories for
     executing system commands:
 
-bash
-
-Copy code
-
+```
 export
 PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin:/root/bin
-
+```
 2.  **Optional Debugging**
 
     - Debugging can be enabled by uncommenting set -x, which will print
@@ -32,12 +29,10 @@ PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin:/root/bin
 
     - It ensures the file exists:
 
-bash
-
-Copy code
+```
 
 if \[\[ ! -f \"\$INSTANCE_ID_FILE\" \]\]; then
-
+```
 - Reads the instance ID, which is used to associate metrics with the EC2
   instance.
 
@@ -45,12 +40,10 @@ if \[\[ ! -f \"\$INSTANCE_ID_FILE\" \]\]; then
 
     - The script checks the status of the Nginx service using systemctl:
 
-bash
-
-Copy code
+```
 
 service_status=\$(systemctl is-active nginx 2\>/dev/null)
-
+```
 - Validates the result to ensure systemctl is available and the command
   succeeds.
 
@@ -66,9 +59,7 @@ service_status=\$(systemctl is-active nginx 2\>/dev/null)
 
     - Uses the AWS CLI to send the metric data to AWS CloudWatch with:
 
-bash
-
-Copy code
+```
 
 aws \--region eu-central-1 cloudwatch put-metric-data \\
 
@@ -79,7 +70,7 @@ aws \--region eu-central-1 cloudwatch put-metric-data \\
 \--namespace CWAgent \\
 
 \--dimensions InstanceId=\"\$INSTANCE_ID\"
-
+```
 - Associates the metric with a custom namespace (CWAgent) and a
   dimension (InstanceId).
 
@@ -124,12 +115,10 @@ aws \--region eu-central-1 cloudwatch put-metric-data \\
 
     - Add it to the system's cron or task scheduler to run periodically:
 
-bash
-
-Copy code
+```
 
 \*/5 \* \* \* \* /opt/aws/amazon-cloudwatch-agent/bin/mon.sh
-
+```
 4.  **Security**
 
     - Restrict access to the script and INSTANCE_ID_FILE to ensure
