@@ -17,8 +17,7 @@ and integrates with AWS CloudWatch alarms for notifications.
     executing system commands:
 
 ```
-export
-PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin:/root/bin
+export PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin:/root/bin
 ```
 2.  **Optional Debugging**
 
