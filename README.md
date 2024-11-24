@@ -107,8 +107,7 @@ aws \--region eu-central-1 cloudwatch put-metric-data \\
 
     - **Condition:** Metric value = 1
 
-    - **Action:** Notify an Amazon SNS topic, send an email, or perform
-      other automated responses.
+    - **Action:** The alarm is configured to send an email notification to my email address.
 
 3.  **Deployment**
 
